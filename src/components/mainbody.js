@@ -10,7 +10,7 @@ export default function MainBody( { children }, { children: ReactNode } ) {
       marginRight="10px"
       >
       <Box
-        maxWidth = "5xl"
+        maxWidth = "4xl"
         margin="auto"
         //bg = 'gray.50'
         //padding="20px"

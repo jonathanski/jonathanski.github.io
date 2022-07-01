@@ -8,15 +8,15 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 
-import skiphoto from "../images/cover_rock.jpeg"
+import defaultPhoto from "../images/cover_rock.jpeg"
 
-export default function HeaderPhoto( { children, titleText, imageAddress }, { children: ReactNode } ) {
+export default function HeaderPhoto( { children, titleText, photo, imageAddress }, { children: ReactNode } ) {
   return (
     <Flex
       w={'full'}
       h={'50vh'}
       backgroundImage=
-        { `url(${skiphoto})` }
+        { `url(${photo!="" && photo != null ? photo : defaultPhoto})` }
 
 
     //  { imageName != "" ? imageName :  `url(${defaultBackground})`}

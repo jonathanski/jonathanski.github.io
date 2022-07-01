@@ -14,11 +14,11 @@ import {
 
 import { CheckCircleIcon } from '@chakra-ui/icons'
 
+const boldWords = ["python", "arcgis", "graphql", "scripted", "java", "sql"]
 
 
 export default function ResumeCard( { children, title, date, infoList }, { children: ReactNode } ) {
 
-  const testList = ['Created Farm Explorer BC web map using ArcGIS Online', 'Used Survey123 to collect information and geospatial data', 'Scripted dynamic display formats using Arcade Expressions', 'Scraped information from public websites and automated repetitive tasks using Python']
   return (
     <Box
       borderWidth="2px"
@@ -26,7 +26,8 @@ export default function ResumeCard( { children, title, date, infoList }, { child
       padding="5px"
       height="full"
       shadow='lg'
-      m={10}
+      mb={5}
+      mt={3}
       >
 
       <Text
@@ -43,15 +44,21 @@ export default function ResumeCard( { children, title, date, infoList }, { child
         direction={useBreakpointValue({ base: "column", md: "row" })}
         h='full'
         p={4}>
-        <Text>
+        <Text
+          width={useBreakpointValue({ base: "", md: "200px" })}>
           {date}
         </Text>
          <List spacing={3}>
-          {testList.map(item =>
+          {infoList.map(item =>
             <ListItem>
               <CheckCircleIcon  mr={2} mb={1} color='green.500' />
-
-              {item}
+              {item.split(' ').map(word => {
+                  if (boldWords.includes(word.toLowerCase())) {
+                    return ( <b> {word + " "} </b> )
+                  } else {
+                    return (word + " ")
+                  }
+              }) }
             </ListItem>
 
           )}
